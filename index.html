@@ -4,6 +4,45 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Payoo Cash App</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@5"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
-    <body></body>
+    <body>
+        <section
+            class="bg-[#f4f5f7] h-[100vh] flex items-center justify-center"
+        >
+            <div class="bg-['asset/bg.png']"></div>
+            <form class="bg-white w-sm px-5 py-7 rounded-2xl">
+                <div>
+                    <label for="" class="font-semibold">Mobile Number</label>
+                    <br />
+                    <input
+                        type="text"
+                        placeholder="Enter your number"
+                        class="input bg-[#f4f5f7] w-full rounded-3xl mt-3 border-none text-base"
+                    />
+                </div>
+
+                <div class="my-4">
+                    <label for="" class="font-semibold">4 Digit Pin</label>
+                    <br />
+                    <input
+                        type="text"
+                        placeholder="Enter 4 Digit Pin"
+                        class="input bg-[#f4f5f7] w-full rounded-3xl mt-3 border-none text-base"
+                    />
+                </div>
+
+                <button
+                    class="btn bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold"
+                >
+                    Login
+                </button>
+            </form>
+        </section>
+    </body>
 </html>
