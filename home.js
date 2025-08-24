@@ -1,85 +1,76 @@
-// ----------------> *** Toggle All Menu Functions *** <----------------
-// Add Money Event Listener ------>
+// ----------------> *** All Menu Even Listener Functions *** <----------------
+
 document.getElementById("add-money-menu").addEventListener("click", () => {
-    document.getElementById("add-money-container").style.display = "block";
-    document.getElementById("cash-out-container").style.display = "none";
-    document.getElementById("money-transfer-container").style.display = "none";
-    document.getElementById("get-bonus-container").style.display = "none";
-    document.getElementById("pay-bill-container").style.display = "none";
-    document.getElementById("transaction-container").style.display = "none";
-    document.getElementById("latest-payment-container").style.display = "none";
+    menuToggle("add-money-container");
 });
 
-// Cash Out Event Listener ------>
 document.getElementById("cash-out-menu").addEventListener("click", () => {
-    document.getElementById("add-money-container").style.display = "none";
-    document.getElementById("cash-out-container").style.display = "block";
-    document.getElementById("money-transfer-container").style.display = "none";
-    document.getElementById("get-bonus-container").style.display = "none";
-    document.getElementById("pay-bill-container").style.display = "none";
-    document.getElementById("transaction-container").style.display = "none";
-    document.getElementById("latest-payment-container").style.display = "none";
+    menuToggle("cash-out-container");
 });
 
-// Money Transfer Event Listener ------>
 document.getElementById("money-transfer-menu").addEventListener("click", () => {
-    document.getElementById("add-money-container").style.display = "none";
-    document.getElementById("cash-out-container").style.display = "none";
-    document.getElementById("money-transfer-container").style.display = "block";
-    document.getElementById("get-bonus-container").style.display = "none";
-    document.getElementById("pay-bill-container").style.display = "none";
-    document.getElementById("transaction-container").style.display = "none";
-    document.getElementById("latest-payment-container").style.display = "none";
+    menuToggle("money-transfer-container");
 });
 
-// Get Bonus Event Listener ------>
 document.getElementById("get-bonus-menu").addEventListener("click", () => {
-    document.getElementById("add-money-container").style.display = "none";
-    document.getElementById("cash-out-container").style.display = "none";
-    document.getElementById("money-transfer-container").style.display = "none";
-    document.getElementById("get-bonus-container").style.display = "block";
-    document.getElementById("pay-bill-container").style.display = "none";
-    document.getElementById("transaction-container").style.display = "none";
-    document.getElementById("latest-payment-container").style.display = "none";
+    menuToggle("get-bonus-container");
 });
 
-// Pay Bill Event Listener ------>
 document.getElementById("pay-bill-menu").addEventListener("click", () => {
-    document.getElementById("add-money-container").style.display = "none";
-    document.getElementById("cash-out-container").style.display = "none";
-    document.getElementById("money-transfer-container").style.display = "none";
-    document.getElementById("get-bonus-container").style.display = "none";
-    document.getElementById("pay-bill-container").style.display = "block";
-    document.getElementById("transaction-container").style.display = "none";
-    document.getElementById("latest-payment-container").style.display = "none";
+    menuToggle("pay-bill-container");
 });
 
-// All Transactions Event Listener ----->
 document.getElementById("transactions-menu").addEventListener("click", () => {
-    document.getElementById("add-money-container").style.display = "none";
-    document.getElementById("cash-out-container").style.display = "none";
-    document.getElementById("money-transfer-container").style.display = "none";
-    document.getElementById("get-bonus-container").style.display = "none";
-    document.getElementById("pay-bill-container").style.display = "none";
-    document.getElementById("transaction-container").style.display = "block";
-    document.getElementById("latest-payment-container").style.display = "none";
+    menuToggle("transaction-container");
 });
+
+/* ---------> *** Reuseable function for get forms input values *** <---------- */
+
+// Handle menu toggle ------>
+function menuToggle(id) {
+    const forms = document.getElementsByClassName("form-container");
+    for (const form of forms) {
+        form.style.display = "none";
+    }
+    document.getElementById(id).style.display = "block";
+}
+
+// To get input values converted in number --->
+function getInputNumber(id) {
+    const inputValueNumber = parseInt(document.getElementById(id).value);
+    return inputValueNumber;
+}
+// To get input values --->
+function getInput(id) {
+    const inputValue = document.getElementById(id).value;
+    return inputValue;
+}
+// To get inner text values --->
+function getInnerText(id) {
+    const innerText = parseInt(document.getElementById(id).innerText);
+    return innerText;
+}
+// To set inner text values --->
+function setInnerText(value) {
+    const innerTextValue = (document.getElementById(
+        "available-balance"
+    ).innerText = value);
+    return innerTextValue;
+}
 
 const pin = 1234;
 
 // -------------------> *** Add Money Function *** <-----------------------
+
 document.getElementById("btn-add-money").addEventListener("click", (e) => {
     e.preventDefault();
 
-    const bankName = document.getElementById("selected-bank").value;
-    const bankAccount = document.getElementById("bank-ac-input").value;
-    const addMoney = parseInt(
-        document.getElementById("add-amount-input").value
-    );
-    const bankPin = parseInt(document.getElementById("bank-pin-input").value);
-    const availableBalance = parseInt(
-        document.getElementById("available-balance").innerText
-    );
+    const bankName = getInput("selected-bank");
+    const bankAccount = getInput("bank-ac-input");
+    const addMoney = getInputNumber("add-amount-input");
+    const bankPin = getInputNumber("bank-pin-input");
+    const availableBalance = getInnerText("available-balance");
+    console.log(bankName, bankAccount, addMoney, bankPin, availableBalance);
 
     if (bankName === "") {
         return alert("A Bank Account Required!!!");
@@ -97,7 +88,7 @@ document.getElementById("btn-add-money").addEventListener("click", (e) => {
         return alert("Invalid Bank Account Pin");
     } else {
         const netBalance = availableBalance + addMoney;
-        document.getElementById("available-balance").innerText = netBalance;
+        setInnerText(netBalance);
         alert(`${addMoney} Add Money Successfully Done.`);
         document.getElementById("add-money-form").reset();
     }
@@ -107,22 +98,20 @@ document.getElementById("btn-add-money").addEventListener("click", (e) => {
 document.getElementById("btn-cash-out").addEventListener("click", (e) => {
     e.preventDefault();
 
-    const agentAccount = document.getElementById("agent-ac-input").value;
-    const cashOutAmount = parseInt(
-        document.getElementById("cash-out-amount-input").value
-    );
-    const cashOutPin = parseInt(
-        document.getElementById("cash-out-pin-input").value
-    );
-    const availableBalance = parseInt(
-        document.getElementById("available-balance").innerText
-    );
+    const agentAccount = getInput("agent-ac-input");
+    const cashOutAmount = getInputNumber("cash-out-amount-input");
+    const cashOutPin = getInputNumber("cash-out-pin-input");
+    const availableBalance = getInnerText("available-balance");
 
+    console.log(agentAccount, cashOutAmount, cashOutPin, availableBalance);
     if (agentAccount.length !== 11) {
         return alert("Invalid Agent Account Number");
     }
     if (isNaN(cashOutAmount)) {
         return alert("Please Enter Your Desire Amount");
+    }
+    if (cashOutAmount > availableBalance) {
+        return alert("Don't Have Sufficient Balance");
     }
     if (cashOutAmount < 100 || cashOutAmount > 50000) {
         return alert("Add Valid Amount Between 100 to 50000");
@@ -134,7 +123,7 @@ document.getElementById("btn-cash-out").addEventListener("click", (e) => {
         return alert("Incorrect Pin Number");
     } else {
         const netBalance = availableBalance - cashOutAmount;
-        document.getElementById("available-balance").innerText = netBalance;
+        setInnerText(netBalance);
         alert(`${cashOutAmount} Withdraw Successfully Done.`);
         document.getElementById("cash-out-form").reset();
     }
