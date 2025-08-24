@@ -1,3 +1,5 @@
+// ----------------> *** Toggle All Menu Functions *** <----------------
+// Add Money Event Listener ------>
 document.getElementById("add-money-menu").addEventListener("click", () => {
     document.getElementById("add-money-container").style.display = "block";
     document.getElementById("cash-out-container").style.display = "none";
@@ -5,8 +7,10 @@ document.getElementById("add-money-menu").addEventListener("click", () => {
     document.getElementById("get-bonus-container").style.display = "none";
     document.getElementById("pay-bill-container").style.display = "none";
     document.getElementById("transaction-container").style.display = "none";
+    document.getElementById("latest-payment-container").style.display = "none";
 });
 
+// Cash Out Event Listener ------>
 document.getElementById("cash-out-menu").addEventListener("click", () => {
     document.getElementById("add-money-container").style.display = "none";
     document.getElementById("cash-out-container").style.display = "block";
@@ -14,8 +18,10 @@ document.getElementById("cash-out-menu").addEventListener("click", () => {
     document.getElementById("get-bonus-container").style.display = "none";
     document.getElementById("pay-bill-container").style.display = "none";
     document.getElementById("transaction-container").style.display = "none";
+    document.getElementById("latest-payment-container").style.display = "none";
 });
 
+// Money Transfer Event Listener ------>
 document.getElementById("money-transfer-menu").addEventListener("click", () => {
     document.getElementById("add-money-container").style.display = "none";
     document.getElementById("cash-out-container").style.display = "none";
@@ -23,8 +29,10 @@ document.getElementById("money-transfer-menu").addEventListener("click", () => {
     document.getElementById("get-bonus-container").style.display = "none";
     document.getElementById("pay-bill-container").style.display = "none";
     document.getElementById("transaction-container").style.display = "none";
+    document.getElementById("latest-payment-container").style.display = "none";
 });
 
+// Get Bonus Event Listener ------>
 document.getElementById("get-bonus-menu").addEventListener("click", () => {
     document.getElementById("add-money-container").style.display = "none";
     document.getElementById("cash-out-container").style.display = "none";
@@ -32,8 +40,10 @@ document.getElementById("get-bonus-menu").addEventListener("click", () => {
     document.getElementById("get-bonus-container").style.display = "block";
     document.getElementById("pay-bill-container").style.display = "none";
     document.getElementById("transaction-container").style.display = "none";
+    document.getElementById("latest-payment-container").style.display = "none";
 });
 
+// Pay Bill Event Listener ------>
 document.getElementById("pay-bill-menu").addEventListener("click", () => {
     document.getElementById("add-money-container").style.display = "none";
     document.getElementById("cash-out-container").style.display = "none";
@@ -41,8 +51,10 @@ document.getElementById("pay-bill-menu").addEventListener("click", () => {
     document.getElementById("get-bonus-container").style.display = "none";
     document.getElementById("pay-bill-container").style.display = "block";
     document.getElementById("transaction-container").style.display = "none";
+    document.getElementById("latest-payment-container").style.display = "none";
 });
 
+// All Transactions Event Listener ----->
 document.getElementById("transactions-menu").addEventListener("click", () => {
     document.getElementById("add-money-container").style.display = "none";
     document.getElementById("cash-out-container").style.display = "none";
@@ -50,11 +62,12 @@ document.getElementById("transactions-menu").addEventListener("click", () => {
     document.getElementById("get-bonus-container").style.display = "none";
     document.getElementById("pay-bill-container").style.display = "none";
     document.getElementById("transaction-container").style.display = "block";
+    document.getElementById("latest-payment-container").style.display = "none";
 });
 
 const pin = 1234;
 
-// Add Money Function --------------------->
+// -------------------> *** Add Money Function *** <-----------------------
 document.getElementById("btn-add-money").addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -67,7 +80,6 @@ document.getElementById("btn-add-money").addEventListener("click", (e) => {
     const availableBalance = parseInt(
         document.getElementById("available-balance").innerText
     );
-    console.log(typeof addMoney === typeof availableBalance);
 
     if (bankName === "") {
         return alert("A Bank Account Required!!!");
@@ -91,4 +103,39 @@ document.getElementById("btn-add-money").addEventListener("click", (e) => {
     }
 });
 
-// Cash Out Function ----------------------->
+// -------------------> *** Cash Out Function *** <-----------------------
+document.getElementById("btn-cash-out").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const agentAccount = document.getElementById("agent-ac-input").value;
+    const cashOutAmount = parseInt(
+        document.getElementById("cash-out-amount-input").value
+    );
+    const cashOutPin = parseInt(
+        document.getElementById("cash-out-pin-input").value
+    );
+    const availableBalance = parseInt(
+        document.getElementById("available-balance").innerText
+    );
+
+    if (agentAccount.length !== 11) {
+        return alert("Invalid Agent Account Number");
+    }
+    if (isNaN(cashOutAmount)) {
+        return alert("Please Enter Your Desire Amount");
+    }
+    if (cashOutAmount < 100 || cashOutAmount > 50000) {
+        return alert("Add Valid Amount Between 100 to 50000");
+    }
+    if (isNaN(cashOutPin)) {
+        return alert("Please Enter Pin Number");
+    }
+    if (cashOutPin !== pin) {
+        return alert("Incorrect Pin Number");
+    } else {
+        const netBalance = availableBalance - cashOutAmount;
+        document.getElementById("available-balance").innerText = netBalance;
+        alert(`${cashOutAmount} Withdraw Successfully Done.`);
+        document.getElementById("cash-out-form").reset();
+    }
+});
