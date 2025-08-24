@@ -27,7 +27,7 @@
             referrerpolicy="no-referrer"
         />
     </head>
-    <body class="bg-[#f4f5f7] h-full">
+    <body class="bg-[#f4f5f7] min-h-[100vh]">
         <!------------------- Main Function Section ------------------->
         <section class="max-w-md mx-auto">
             <!----- Navigation Menu with Logo ---->
@@ -74,8 +74,11 @@
             <div
                 class="bg-white p-5 rounded-br-xl rounded-bl-xl grid grid-cols-3 gap-4"
             >
-                <!-- card - 1 -->
-                <div class="border border-gray-200 rounded-2xl p-2">
+                <!-- card - 1 Add Money -->
+                <div
+                    id="add-money-menu"
+                    class="p-2 border border-gray-200 rounded-2xl cursor-pointer"
+                >
                     <img
                         class="mx-auto p-2"
                         src="./assets/wallet1.png"
@@ -89,7 +92,10 @@
                     </h3>
                 </div>
                 <!-- card - 2 Cash Out -->
-                <div class="border border-gray-200 rounded-xl p-2">
+                <div
+                    id="cash-out-menu"
+                    class="p-2 border border-gray-200 rounded-2xl cursor-pointer"
+                >
                     <img
                         class="mx-auto p-2"
                         src="./assets/send1.png"
@@ -103,7 +109,10 @@
                     </h3>
                 </div>
                 <!-- card - 3 Transfer Money -->
-                <div class="border border-gray-200 rounded-xl p-2">
+                <div
+                    id="money-transfer-menu"
+                    class="p-2 border border-gray-200 rounded-2xl cursor-pointer"
+                >
                     <img
                         class="mx-auto p-2"
                         src="./assets/money1.png"
@@ -116,8 +125,11 @@
                         Transfer Money
                     </h3>
                 </div>
-                <!-- card - 4 Get Bonous-->
-                <div class="border border-gray-200 rounded-xl p-2">
+                <!-- card - 4 Get Bonus-->
+                <div
+                    id="get-bonus-menu"
+                    class="p-2 border border-gray-200 rounded-2xl cursor-pointer"
+                >
                     <img
                         class="mx-auto p-2"
                         src="./assets/bonus1.png"
@@ -127,11 +139,14 @@
                     <h3
                         class="text-center text-sm font-medium text-[#0874f2] pb-2"
                     >
-                        Get Bonous
+                        Get Bonus
                     </h3>
                 </div>
                 <!-- card - 5 Pay Bill -->
-                <div class="border border-gray-200 rounded-xl p-2">
+                <div
+                    id="pay-bill-menu"
+                    class="p-2 border border-gray-200 rounded-2xl cursor-pointer"
+                >
                     <img
                         class="mx-auto p-2"
                         src="./assets/purse1.png"
@@ -144,8 +159,11 @@
                         Pay Bill
                     </h3>
                 </div>
-                <!-- card - 6 Transaction -->
-                <div class="border border-gray-200 rounded-xl p-2">
+                <!-- card - 6 Transactions -->
+                <div
+                    id="transactions-menu"
+                    class="p-2 border border-gray-200 rounded-2xl cursor-pointer"
+                >
                     <img
                         class="mx-auto p-2"
                         src="./assets/transaction1.png"
@@ -155,92 +173,352 @@
                     <h3
                         class="text-center text-sm font-medium text-[#0874f2] pb-2"
                     >
-                        Transaction
+                        Transactions
                     </h3>
                 </div>
             </div>
         </section>
 
-        <!--------------------- Form Section ----------------------->
+        <!------------------- All Form Section --------------------->
         <section class="max-w-md mx-auto">
             <div class="p-5">
-                <h3 class="text-xl font-bold text-gray-800 py-2">Add Money</h3>
-                <form
-                    id="add-money-form"
-                    action=""
-                    class="bg-white p-6 rounded-2xl"
-                >
-                    <!-- Select Bank Input -->
-                    <div class="mb-4">
-                        <h3 class="pb-2 font-semibold text-gray-700">
-                            Select A Bank
-                        </h3>
-                        <select
-                            id="selected-bank"
-                            class="select select-lg bg-[#f4f5f7] w-full rounded-3xl border-none text-base text-gray-400 cursor-pointer"
-                            required
-                        >
-                            <option disabled selected value="">
-                                Select Bank
-                            </option>
-                            <option value="sonali">Sonali Bank PLC.</option>
-                            <option value="ibbl">IBBL PLC.</option>
-                            <option value="national">National Bank PLC.</option>
-                            <option value="dbbl">DBBL PLC.</option>
-                            <option value="dhaka">Dhaka Bank PLC.</option>
-                        </select>
-                    </div>
-
-                    <!-- Bank Account Number Input -->
-                    <div class="mb-4">
-                        <h3 class="pb-2 font-semibold text-gray-700">
-                            Bank Account Number
-                        </h3>
-                        <input
-                            id="bank-ac-input"
-                            type="number"
-                            placeholder="Enter 9 Digit Bank Account No."
-                            class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
-                            required
-                        />
-                    </div>
-
-                    <!-- Amount to Add Input -->
-                    <div class="mb-4">
-                        <h3 class="pb-2 font-semibold text-gray-700">
-                            Amount to Add
-                        </h3>
-                        <input
-                            id="add-amount-input"
-                            type="number"
-                            placeholder="Add Amount Between 100 to 50000"
-                            class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
-                            required
-                        />
-                    </div>
-
-                    <!-- Pin Number Input -->
-                    <div class="mb-5">
-                        <h3 class="pb-2 font-semibold text-gray-700">
-                            Pin Number
-                        </h3>
-                        <input
-                            id="bank-pin-input"
-                            type="number"
-                            placeholder="Enter 4 Digit Pin"
-                            class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
-                            required
-                        />
-                    </div>
-
-                    <!-- Add Money Button -->
-                    <button
-                        id="btn-add-money"
-                        class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
-                    >
+                <!---- Add Money Form ---->
+                <div id="add-money-container" class="hidden">
+                    <h3 class="text-xl font-bold text-gray-800 py-2">
                         Add Money
-                    </button>
-                </form>
+                    </h3>
+                    <form
+                        id="add-money-form"
+                        action=""
+                        class="bg-white p-6 rounded-2xl"
+                    >
+                        <!-- Select Bank Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Select A Bank
+                            </h3>
+                            <select
+                                id="selected-bank"
+                                class="select select-lg bg-[#f4f5f7] w-full rounded-3xl border-none text-base text-gray-400 cursor-pointer"
+                                required
+                            >
+                                <option disabled selected value="">
+                                    Select Bank
+                                </option>
+                                <option value="sonali">Sonali Bank PLC.</option>
+                                <option value="ibbl">IBBL PLC.</option>
+                                <option value="national">
+                                    National Bank PLC.
+                                </option>
+                                <option value="dbbl">DBBL PLC.</option>
+                                <option value="dhaka">Dhaka Bank PLC.</option>
+                            </select>
+                        </div>
+
+                        <!-- Bank Account Number Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Bank Account Number
+                            </h3>
+                            <input
+                                id="bank-ac-input"
+                                type="number"
+                                placeholder="Enter 9 Digit Bank Account No."
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Amount to Add Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Amount to Add
+                            </h3>
+                            <input
+                                id="add-amount-input"
+                                type="number"
+                                placeholder="Add Amount Between 100 to 50000"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Pin Number Input -->
+                        <div class="mb-5">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Pin Number
+                            </h3>
+                            <input
+                                id="bank-pin-input"
+                                type="number"
+                                placeholder="Enter 4 Digit Pin"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Add Money Button -->
+                        <button
+                            id="btn-add-money"
+                            class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
+                        >
+                            Add Money
+                        </button>
+                    </form>
+                </div>
+
+                <!---- Cash Out Form ---->
+                <div id="cash-out-container" class="hidden">
+                    <h3 class="text-xl font-bold text-gray-800 py-2">
+                        Cash Out
+                    </h3>
+                    <form
+                        id="cash-out-form"
+                        action=""
+                        class="bg-white p-6 rounded-2xl"
+                    >
+                        <!-- Agent Account Number Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Agent Account Number
+                            </h3>
+                            <input
+                                id="agent-ac-input"
+                                type="number"
+                                placeholder="Enter 11 Digit Agent Number"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Amount to Cash Out Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Cash Out Amount
+                            </h3>
+                            <input
+                                id="cash-out-amount-input"
+                                type="number"
+                                placeholder="Enter Amount Between 100 to 50000"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Pin Number Input -->
+                        <div class="mb-5">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Pin Number
+                            </h3>
+                            <input
+                                id="bank-pin-input"
+                                type="number"
+                                placeholder="Enter 4 Digit Pin"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Cash Out Button -->
+                        <button
+                            id="btn-cash-out"
+                            class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
+                        >
+                            Withdraw Money
+                        </button>
+                    </form>
+                </div>
+
+                <!---- Money Transfer Form ---->
+                <div id="money-transfer-container" class="hidden">
+                    <h3 class="text-xl font-bold text-gray-800 py-2">
+                        Transfer Money
+                    </h3>
+                    <form
+                        id="money-transfer-form"
+                        action=""
+                        class="bg-white p-6 rounded-2xl"
+                    >
+                        <!-- User Account Number Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                User Account Number
+                            </h3>
+                            <input
+                                id="user-ac-input"
+                                type="number"
+                                placeholder="Enter 11 Digit User Number"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Transfer Money Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Amount
+                            </h3>
+                            <input
+                                id="money-transfer-input"
+                                type="number"
+                                placeholder="Enter Amount Between 100 to 10000"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Pin Number Input -->
+                        <div class="mb-5">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Pin Number
+                            </h3>
+                            <input
+                                id="bank-pin-input"
+                                type="number"
+                                placeholder="Enter 4 Digit Pin"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Money Transfer Button -->
+                        <button
+                            id="btn-money-transfer"
+                            class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
+                        >
+                            Send Now
+                        </button>
+                    </form>
+                </div>
+
+                <!---- Get Bonus Form ---->
+                <div id="get-bonus-container" class="hidden">
+                    <h3 class="text-xl font-bold text-gray-800 py-2">
+                        Get Bonus
+                    </h3>
+                    <form
+                        id="money-transfer-form"
+                        action=""
+                        class="bg-white p-6 rounded-2xl"
+                    >
+                        <!-- Coupon Input -->
+                        <div class="mb-5">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Bonus Coupon
+                            </h3>
+                            <input
+                                id="bonus-coupon-input"
+                                type="number"
+                                placeholder="Enter Bonus Coupon Code"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Get Bonus Button -->
+                        <button
+                            id="btn-get-bonous"
+                            class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
+                        >
+                            Get Bonus
+                        </button>
+                    </form>
+                </div>
+
+                <!---- Pay Bill Form ---->
+                <div id="pay-bill-container" class="hidden">
+                    <h3 class="text-xl font-bold text-gray-800 py-2">
+                        Pay Bill
+                    </h3>
+                    <form
+                        id="pay-bill-form"
+                        action=""
+                        class="bg-white p-6 rounded-2xl"
+                    >
+                        <!-- Select Bank Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Select A Bank
+                            </h3>
+                            <select
+                                id="selected-bank"
+                                class="select select-lg bg-[#f4f5f7] w-full rounded-3xl border-none text-base text-gray-400 cursor-pointer"
+                                required
+                            >
+                                <option disabled selected value="">
+                                    Select Bank
+                                </option>
+                                <option value="sonali">Sonali Bank PLC.</option>
+                                <option value="ibbl">IBBL PLC.</option>
+                                <option value="national">
+                                    National Bank PLC.
+                                </option>
+                                <option value="dbbl">DBBL PLC.</option>
+                                <option value="dhaka">Dhaka Bank PLC.</option>
+                            </select>
+                        </div>
+
+                        <!-- Biller Account Number Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Biller Account Number
+                            </h3>
+                            <input
+                                id="biller-ac-input"
+                                type="number"
+                                placeholder="Enter Biller Account Number"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Amount to Pay Bill Input -->
+                        <div class="mb-4">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Amount to Pay
+                            </h3>
+                            <input
+                                id="pay-amount-input"
+                                type="number"
+                                placeholder="Enter Amount to Pay"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Pin Number Input -->
+                        <div class="mb-5">
+                            <h3 class="pb-2 font-semibold text-gray-700">
+                                Pin Number
+                            </h3>
+                            <input
+                                id="bank-pin-input"
+                                type="number"
+                                placeholder="Enter 4 Digit Pin"
+                                class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                                required
+                            />
+                        </div>
+
+                        <!-- Pay Bill Button -->
+                        <button
+                            id="btn-pay-bill"
+                            class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
+                        >
+                            Pay Now
+                        </button>
+                    </form>
+                </div>
+
+                <!---- Transaction History ---->
+                <div id="transaction-container" class="hidden">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-gray-800 py-2">
+                            Transaction History
+                        </h3>
+                        <a href="" class="text-sm text-gray-400">View All</a>
+                    </div>
+                </div>
             </div>
         </section>
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body
+        id="bg-color"
+        style="max-width: 400px; margin: 100px auto; text-align: center"
+    >
+        <button id="btn-1">Moon Light</button>
+        <button id="btn-2">Sun Light</button>
+
+        <div>
+            <!-- <h1 id="cash-out" style="display: none">I am Cash Out</h1>
+            <h1 id="add-money" style="display: none">I am Add Money</h1> -->
+        </div>
+
+        <script>
+            document.getElementById("btn-1").addEventListener("click", () => {
+                // document.getElementById("cash-out").style.bac = "block";
+                // document.getElementById("add-money").style.display = "none";
+                document.getElementById("bg-color").style.backgroundColor =
+                    "black";
+            });
+
+            document.getElementById("btn-2").addEventListener("click", () => {
+                // document.getElementById("add-money").style.display = "block";
+                // document.getElementById("cash-out").style.display = "none";
+                document.getElementById("bg-color").style.backgroundColor =
+                    "white";
+            });
+        </script>
+    </body>
+</html>
