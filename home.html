@@ -28,9 +28,9 @@
         />
     </head>
     <body class="bg-[#f4f5f7] h-full">
-        <!--------- Main Function Section --------->
+        <!------------------- Main Function Section ------------------->
         <section class="max-w-md mx-auto">
-            <!------- Navigation Menu with Logo ------>
+            <!----- Navigation Menu with Logo ---->
             <div
                 class="bg-white flex items-center justify-between p-5 border-b border-gray-200"
             >
@@ -59,10 +59,10 @@
                 </div>
             </div>
 
-            <!--------- Home Greetings  --------->
+            <!------ Home Greetings  ----->
             <div class="bg-white p-5 rounded-br-xl rounded-bl-xl">
                 <h1 class="py-3 text-2xl font-bold text-gray-800">
-                    🔥 Welcome to Payooo!
+                    Welcome to Payooo 🚀
                 </h1>
                 <p class="text-gray-400">
                     Enjoy easy and convenient financial services with us. <br />
@@ -70,7 +70,7 @@
                 </p>
             </div>
 
-            <!------- All Main functionallity --------->
+            <!------- All Main functionallity ------>
             <div
                 class="bg-white p-5 rounded-br-xl rounded-bl-xl grid grid-cols-3 gap-4"
             >
@@ -161,11 +161,15 @@
             </div>
         </section>
 
-        <!--------- Form Section ---------->
+        <!--------------------- Form Section ----------------------->
         <section class="max-w-md mx-auto">
             <div class="p-5">
                 <h3 class="text-xl font-bold text-gray-800 py-2">Add Money</h3>
-                <form action="" class="bg-white p-6 rounded-2xl">
+                <form
+                    id="add-money-form"
+                    action=""
+                    class="bg-white p-6 rounded-2xl"
+                >
                     <!-- Select Bank Input -->
                     <div class="mb-4">
                         <h3 class="pb-2 font-semibold text-gray-700">
@@ -173,12 +177,17 @@
                         </h3>
                         <select
                             id="selected-bank"
-                            class="select select-lg bg-[#f4f5f7] w-full rounded-3xl border-none text-base text-gray-400"
+                            class="select select-lg bg-[#f4f5f7] w-full rounded-3xl border-none text-base text-gray-400 cursor-pointer"
+                            required
                         >
-                            <option disabled selected>Select Bank</option>
-                            <option>Sonali Bank PLC.</option>
-                            <option>IBBL PLC.</option>
-                            <option>DBBL PLC.</option>
+                            <option disabled selected value="">
+                                Select Bank
+                            </option>
+                            <option value="sonali">Sonali Bank PLC.</option>
+                            <option value="ibbl">IBBL PLC.</option>
+                            <option value="national">National Bank PLC.</option>
+                            <option value="dbbl">DBBL PLC.</option>
+                            <option value="dhaka">Dhaka Bank PLC.</option>
                         </select>
                     </div>
 
@@ -190,8 +199,9 @@
                         <input
                             id="bank-ac-input"
                             type="number"
-                            placeholder="Enter 14 Digit Bank Account No."
+                            placeholder="Enter 9 Digit Bank Account No."
                             class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                            required
                         />
                     </div>
 
@@ -203,8 +213,9 @@
                         <input
                             id="add-amount-input"
                             type="number"
-                            placeholder="Enter Amount"
+                            placeholder="Add Amount Between 100 to 50000"
                             class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                            required
                         />
                     </div>
 
@@ -218,13 +229,14 @@
                             type="number"
                             placeholder="Enter 4 Digit Pin"
                             class="input input-lg bg-[#f4f5f7] w-full rounded-3xl px-4 border-none outline-0 text-base"
+                            required
                         />
                     </div>
 
                     <!-- Add Money Button -->
                     <button
                         id="btn-add-money"
-                        class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5"
+                        class="bg-[#0874f2] text-white rounded-3xl w-full border-none text-lg font-semibold py-2.5 cursor-pointer"
                     >
                         Add Money
                     </button>
