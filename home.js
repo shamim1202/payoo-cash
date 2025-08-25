@@ -2,26 +2,32 @@
 
 document.getElementById("add-money-menu").addEventListener("click", () => {
     menuToggle("add-money-container");
+    btnMenuToggle("add-money-menu");
 });
 
 document.getElementById("cash-out-menu").addEventListener("click", () => {
     menuToggle("cash-out-container");
+    btnMenuToggle("cash-out-menu");
 });
 
 document.getElementById("money-transfer-menu").addEventListener("click", () => {
     menuToggle("money-transfer-container");
+    btnMenuToggle("money-transfer-menu");
 });
 
 document.getElementById("get-bonus-menu").addEventListener("click", () => {
     menuToggle("get-bonus-container");
+    btnMenuToggle("get-bonus-menu");
 });
 
 document.getElementById("pay-bill-menu").addEventListener("click", () => {
     menuToggle("pay-bill-container");
+    btnMenuToggle("pay-bill-menu");
 });
 
 document.getElementById("transactions-menu").addEventListener("click", () => {
     menuToggle("transaction-container");
+    btnMenuToggle("transactions-menu");
 });
 
 /* ---------> *** Reuseable function for get forms input values *** <---------- */
@@ -33,6 +39,19 @@ function menuToggle(id) {
         form.style.display = "none";
     }
     document.getElementById(id).style.display = "block";
+}
+
+// Handle change menu style by toggle ------>
+function btnMenuToggle(id) {
+    const btnMenu = document.getElementsByClassName("btn-menu");
+    for (const menu of btnMenu) {
+        menu.classList.remove("border", "border-blue-500", "bg-blue-50");
+        menu.classList.add("border", "border-gray-200");
+    }
+    document.getElementById(id).classList.remove("border", "border-gray-200");
+    document
+        .getElementById(id)
+        .classList.add("border", "border-blue-500", "bg-blue-50");
 }
 
 // To get input values converted in number --->
