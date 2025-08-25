@@ -1,4 +1,8 @@
-// ----------------> *** All Menu Even Listener Functions *** <----------------
+/* ----------------> All Declarable Variable For Use <--------------- */
+const pin = 1234;
+const transactionsData = [];
+
+/* ----------------> *** All Menu Even Listener Functions *** <---------------- */
 
 document.getElementById("add-money-menu").addEventListener("click", () => {
     menuToggle("add-money-container");
@@ -77,9 +81,7 @@ function setInnerText(value) {
     return innerTextValue;
 }
 
-const pin = 1234;
-
-// -------------------> *** Add Money Function *** <-----------------------
+// -------------> *** Add Money Event Handler Function *** <--------------
 
 document.getElementById("btn-add-money").addEventListener("click", (e) => {
     e.preventDefault();
@@ -100,8 +102,8 @@ document.getElementById("btn-add-money").addEventListener("click", (e) => {
     if (isNaN(addMoney)) {
         return alert("Please Enter Your Desire Amount");
     }
-    if (addMoney < 100 || addMoney > 50000) {
-        return alert("Add Valid Amount Between 100 to 50000");
+    if (addMoney < 100 || addMoney > 20000) {
+        return alert("Add Valid Amount Between 100 to 20000");
     }
     if (bankPin !== pin) {
         return alert("Invalid Bank Account Pin");
@@ -111,9 +113,16 @@ document.getElementById("btn-add-money").addEventListener("click", (e) => {
         alert(`${addMoney} Add Money Successfully Done.`);
         document.getElementById("add-money-form").reset();
     }
+
+    const data = {
+        icon: "./assets/wallet1.png",
+        name: "Add Money",
+        date: new Date().toLocaleString(),
+    };
+    transactionsData.push(data);
 });
 
-// -------------------> *** Cash Out Function *** <-----------------------
+// -------------> *** Cash Out Event Handler Function *** <--------------
 document.getElementById("btn-cash-out").addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -133,7 +142,7 @@ document.getElementById("btn-cash-out").addEventListener("click", (e) => {
         return alert("Don't Have Sufficient Balance");
     }
     if (cashOutAmount < 100 || cashOutAmount > 50000) {
-        return alert("Add Valid Amount Between 100 to 50000");
+        return alert("Add Valid Amount Between 100 to 30000");
     }
     if (isNaN(cashOutPin)) {
         return alert("Please Enter Pin Number");
@@ -145,5 +154,40 @@ document.getElementById("btn-cash-out").addEventListener("click", (e) => {
         setInnerText(netBalance);
         alert(`${cashOutAmount} Withdraw Successfully Done.`);
         document.getElementById("cash-out-form").reset();
+    }
+
+    const data = {
+        icon: "./assets/send1.png",
+        name: "Cash Out",
+        date: new Date().toLocaleString(),
+    };
+    transactionsData.push(data);
+});
+
+// ------------> *** Transactions Event Handler Function *** <--------------
+document.getElementById("transactions-menu").addEventListener("click", (e) => {
+    const transactionList = document.getElementById("transaction-list");
+    transactionList.innerHTML = "";
+
+    for (const data of transactionsData) {
+        const div = document.createElement("div");
+        div.innerHTML = `
+        <div class="bg-white p-3 rounded-2xl flex items-center justify-between">
+            <div class="flex items-center gap-5">
+                <div class="p-2 bg-gray-200 rounded-full">
+                    <img
+                        src="${data.icon}"
+                        alt=""
+                        srcset=""
+                    />
+                </div>
+                <div>
+                    <h5 class="text-base font-bold text-gray-600">${data.name}</h5>
+                    <span class="text-xs text-gray-500">${data.date}</span>
+                </div>
+            </div>
+            <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+        </div>`;
+        transactionList.appendChild(div);
     }
 });
